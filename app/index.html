@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="pracApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,21 +16,6 @@
     <![endif]-->
     <!--Stylesheets-->
     <link rel="stylesheet" href="styles/main.css" type="text/css">
-  </head>
-  <body ng-app="appName">
-
-  <div class="container">
-
-
-
-
-    <!-- #######-=== Site Content HERE ===-####### -->
-
-
-
-
-  </div> <!-- ## CONTAINER END ## -->
-
     <!--Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <!--<script type="text/javascript" src="vendor/angular.min.js"></script>-->
@@ -39,5 +24,69 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Angular practice application</h1>
+
+  <div ng-controller="myCtrl">
+    <!--First name: {{ employee.firstName }} <br>-->
+    <!--last name: {{ employee.lastName }} <br>-->
+    <!--gender: {{ employee.gender }} <br>-->
+    <div>
+      Name: {{ country.name }}
+    </div>
+    <div>
+      Capital: {{ country.capital }}
+    </div>
+    <div>
+      image: <br>
+      <img ng-src="{{ country.image }}" alt="{{ country.name + Flag }}" class="img-thumbnail">
+    </div>
+  </div>
+    <br>
+
+    <!-- ##-= two way ctrl =-## -->
+  <div class="twoWay" ng-controller="twoWayCtrl">
+    <input type="text" ng-model="message">
+    {{ message }}
+  </div>
+    <br>
+
+
+    <div class="col-lg-3">
+      <form action="" method="post" role="form" ng-controller="employeeCtrl">
+        <legend>Employee name form</legend>
+
+        <div class="form-group">
+          <label for="">First name:</label><br> <input type="text" class="form-control" ng-model="employee.fName">
+        </div>
+        <div class="form-group">
+          <label for="">Last name:</label><br> <input type="text" class="form-control" ng-model="employee.lName">
+        </div>
+        <div class="form-group">
+          <label for="">Gender:</label><br> <input type="text" class="form-control" ng-model="employee.gender">
+        </div>
+
+        <div class="form-group">
+          <label for="">First name:</label><br> {{ employee.fName }}
+        </div>
+        <div class="form-group">
+          <label for="">Last name:</label><br> {{ employee.lName }}
+        </div>
+        <div class="form-group">
+          <label for="">Gender:</label><br> {{ employee.gender }}
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+
+  </div> <!-- ## CONTAINER END ## -->
   </body>
 </html>
