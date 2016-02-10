@@ -1,3 +1,3 @@
 # Angular Examples
  
- -  Practice examples for Two-way data binding, Modules, Directives, Controllers, Services.
+ -  Practice examples for Two-way data binding, Modules, Directives, Controllers and Services.
