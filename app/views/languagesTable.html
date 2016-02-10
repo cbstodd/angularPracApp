@@ -1,0 +1,16 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Proficient</th>
+			<th>Years</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="lang in languages">
+			<td>{{ lang.name }}</td>
+			<td>{{ lang.proficient | proficient }}</td>
+			<td>{{ lang.years }}</td>
+		</tr>
+	</tbody>
+</table>

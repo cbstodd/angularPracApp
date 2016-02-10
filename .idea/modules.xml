@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../pracApp/.idea/angular1.4.9template.iml" filepath="$PROJECT_DIR$/../pracApp/.idea/angular1.4.9template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/angular1.4.9template.iml" filepath="$PROJECT_DIR$/.idea/angular1.4.9template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pracApp.iml" filepath="$PROJECT_DIR$/.idea/pracApp.iml" />
     </modules>
   </component>
 </project>

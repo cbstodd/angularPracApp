@@ -1,0 +1,8 @@
+<ul class="lang-list" ng-repeat="lang in languages">
+  <li>{{ lang.name }}</li>
+  <ul>
+    <li><b>Proficient?:</b> {{ lang.proficient | proficient }}</li>
+    <li><b>Years:</b> {{ lang.years }}</li>
+  </ul>
+
+</ul>

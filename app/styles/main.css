@@ -1,3 +1,7 @@
 .img-thumbnail {
     max-width: 150px;
 }
+
+.lang-list {
+    list-style-type: none;
+}

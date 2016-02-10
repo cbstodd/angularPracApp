@@ -20,6 +20,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <!--<script type="text/javascript" src="vendor/angular.min.js"></script>-->
   <script type="text/javascript" src="js/evt_handler.js"></script>
+  <script type="text/javascript" src="js/filters.js"></script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -48,19 +49,20 @@
           <!--<td>-->
             <!--<input type="button" value="likes" class="btn btn-success btn-sm" ng-click="incrementLikes(technology)">-->
             <!--<input type="button" value="dislikes" class="btn btn-danger btn-sm" ng-click="incrementDislikes(technology)">-->
-            <!--&lt;!&ndash; ##-= (technology) is called from tech in techies =-## &ndash;&gt;-->
+            <!-- ##-= (technology) is called from tech in techies =-## -->
           <!--</td>-->
 
     		<!--</tr>-->
     	<!--</tbody>-->
     <!--</table>-->
-  <!--</div>-->
+  </div>
 
   <h3>Filters</h3>
 
   <div class="" ng-controller="filterCtrl">
     <div class="col-lg-3">
       <div class="form-group">
+
         <!--<label for="number">Change rows to display</label>-->
         <!--<input type="number" class="form-control" step="1" min="0" max="5" ng-model="rowLimit">-->
 
@@ -68,19 +70,25 @@
         <!--<input type="number" class="form-control" step="1" min="0" max="5" ng-model="rowLimit">-->
         <!--<input type="number" class="form-control" step="1" min="0" max="5" ng-model="rowLimit">-->
 
-        <label for="number">Search Stodds</label>
-        <input type="number" class="form-control" step="1" min="0" max="5" ng-model="rowLimit">
+        <!--<label>Search Stodds</label>-->
+        <!-- ##-= the searchText.name signifies to search only in name column =-## -->
+        <!--<input type="text" class="form-control" placeholder="Search name" ng-model="searchText.name">-->
+        <!--<input type="checkbox" ng-model="exactMatch"> Exact match-->
+
+        <!-- ##-= Hide/Show salary =-## -->
+        <input type="checkbox" ng-model="hideSalary"> Hide salary
+        <input type="checkbox" ng-model="showSalary"> Show salary
 
 
-        <div class="form-group">
-          <label for="sel1">Order by:</label>
-            <select name="sortColumn" id="sel1" ng-model="sortColumn">
-              <option value="name">Name ASC</option>
-              <option value="gender">Gender ASC</option>
-              <option value="dateOfBirth">Date of birth ASC</option>
-              <option value="salary">Salary ASC</option>
-          </select>
-        </div>
+        <!--<div class="form-group">-->
+          <!--<label for="sel1">Order by:</label>-->
+            <!--<select name="sortColumn" id="sel1" ng-model="sortColumn">-->
+              <!--<option value="name">Name ASC</option>-->
+              <!--<option value="gender">Gender ASC</option>-->
+              <!--<option value="dateOfBirth">Date of birth ASC</option>-->
+              <!--<option value="salary">Salary ASC</option>-->
+          <!--</select>-->
+        <!--</div>-->
       </div>
     </div>
     <table class="table table-striped">
@@ -89,11 +97,12 @@
             <th>Name</th>
             <th>Date of birth</th>
             <th>Gender</th>
-            <th>Salary</th>
+            <!--<th>Salary</th>-->
+            <th ng-hide="hideSalary" ng-show="showSalary">Salary</th>
           </tr>
       </thead>
       <tbody>
-        <!--&lt;!&ndash; ##-= limitTo (number) =-## &ndash;&gt;-->
+        <!-- ##-= limitTo (number) =-## -->
         <!--<tr ng-repeat="stodd in stodds | limitTo:rowLimit ">-->
           <!--<td>{{ stodd.name | uppercase }}</td>-->
           <!--<td>{{ stodd.dateOfBirth | date:'dd/MM/yyyy' }}</td>-->
@@ -101,7 +110,7 @@
           <!--<td>{{ stodd.salary | currency }}</td>-->
         <!--</tr>-->
 
-        <!--&lt;!&ndash; ##-= orderBy =-## &ndash;&gt;-->
+        <!-- ##-= orderBy =-## -->
         <!--<tr ng-repeat="stodd in stodds | orderBy: '-salary'">-->
           <!--<td>{{ stodd.name | uppercase }}</td>-->
           <!--<td>{{ stodd.dateOfBirth | date:'dd/MM/yyyy' }}</td>-->
@@ -110,11 +119,28 @@
         <!--</tr>-->
 
         <!-- ##-= orderBy sortColumn=-## -->
-        <tr ng-repeat=" stodd in stodds | orderBy:sortColumn ">
-          <td>{{ stodd.name | uppercase }}</td>
-          <td>{{ stodd.dateOfBirth | date:'dd/MM/yyyy' }}</td>
-          <td>{{ stodd.gender | lowercase }}</td>
-          <td>{{ stodd.salary | currency }}</td>
+        <!--<tr ng-repeat=" stodd in stodds | orderBy:sortColumn ">-->
+          <!--<td>{{ stodd.name | uppercase }}</td>-->
+          <!--<td>{{ stodd.dateOfBirth | date:'dd/MM/yyyy' }}</td>-->
+          <!--<td>{{ stodd.gender | lowercase }}</td>-->
+          <!--<td>{{ stodd.salary | currency }}</td>-->
+        <!--</tr>-->
+
+        <!-- ##-= Search =-## -->
+        <tr ng-repeat=" stodd in stodds | filter:searchText ">
+
+        <!-- ##-= Exact match =-## -->
+        <!--<tr ng-repeat=" stodd in stodds | filter:searchText:exactMatch ">-->
+          <!--<td>{{ stodd.name }}</td>-->
+          <!--<td>{{ stodd.dateOfBirth | date }}</td>-->
+          <!--<td>{{ stodd.gender | gender }}</td>-->
+          <!--<td>{{ stodd.salary | currency }}</td>-->
+
+          <!-- ##-= Hide Salary =-## -->
+          <td>{{ stodd.name }}</td>
+          <td>{{ stodd.dateOfBirth | date }}</td>
+          <td>{{ stodd.gender | gender }}</td>
+          <td ng-hide="hideSalary" ng-show="showSalary">{{ stodd.salary | currency }}</td>
         </tr>
       </tbody>
     </table>

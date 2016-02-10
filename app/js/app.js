@@ -1,3 +1,5 @@
+'use strict';
+
 //var pracApp = angular.module('pracApp', []);
 //
 //pracApp.controller('myCtrl', function ($scope) {
@@ -46,5 +48,3 @@ var pracApp = angular
       }
       $scope.employee = employee;
     });
-
-
