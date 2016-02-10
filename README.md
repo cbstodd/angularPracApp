@@ -1,3 +1,3 @@
-# AngularJS v1.4.9 template
+# Angular Examples
  
- - This is a simple app starter template 
+ -  Practice examples for Two-way data binding, Modules, Directives, Controllers, Services.
