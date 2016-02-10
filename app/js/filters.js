@@ -1,6 +1,6 @@
 //Custom filters.
 
-/// <reference path="evt_handler.js" />
+/// <reference path="event_handler.js" />
 
 app.filter('gender', function() {
   return function(gender) {

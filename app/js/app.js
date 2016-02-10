@@ -1,8 +1,8 @@
 'use strict';
 
-//var pracApp = angular.module('pracApp', []);
+//var app = angular.module('app', []);
 //
-//pracApp.controller('myCtrl', function ($scope) {
+//app.controller('myCtrl', function ($scope) {
 //  var employee = {
 //    firstName: 'Colin',
 //    lastName: 'Stodd',
@@ -13,8 +13,8 @@
 
 //<!-- ##-= OR chaining =-## -->
 
-//var pracApp = angular
-//  .module('pracApp', [])
+//var app = angular
+//  .module('app', [])
 //  .controller('myCtrl', function ($scope) {
 //          var employee = {
 //              firstName: 'Colin',
@@ -24,8 +24,19 @@
 //     $scope.employee = employee
 //  });
 
-var pracApp = angular
-    .module('pracApp', [])
+var app = angular
+    .module('appModule', [])
+      //$http({
+      //  method: 'GET',
+      //  url: '/someUrlOrDatabaseName' })
+      //    .then(function successCallback(response) {
+      //      // this callback will be called asynchronously
+      //      // when the response is available
+      //    }, function errorCallback(response) {
+      //      // called asynchronously if an error occurs
+      //      // or server returns response with an error status.
+      //    })
+
     .controller('myCtrl', function ($scope) {
       var country = {
         name: "United States",

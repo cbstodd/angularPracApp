@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appModule">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,47 +19,47 @@
   <!--Angular-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <!--<script type="text/javascript" src="vendor/angular.min.js"></script>-->
-  <script type="text/javascript" src="js/include.js"></script>
-  <script type="text/javascript" src="js/filters.js"></script>
+  <script type="text/javascript" src="js/service.js"></script>
+  <script type="text/javascript" src="js/stringService.js"></script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
-<body ng-app="initModule">
-  <div class="container">
-  <h1>Angular Init</h1>
+<body>
+<div class="container">
 
-    <div ng-controller="initCtrl">
-
-      Select view:
-      <select name="selView" id="sel-view" ng-model="languageView">
-        <option value="views/languagesTable.html">Table</option>
-        <option value="views/languagesList.html">List</option>
-      </select>
-
-      <div ng-include="languageView"></div>
-      <!--<div class="" ng-include="languagesTable"></div>-->
-      <!--<div class="" ng-include="languagesList"></div>-->
-
-      <!--<ul>-->
-        <!--<li ng-repeat="country in countries">-->
-        <!--{{ country.name }}-->
-
-        <!--<ul>-->
-          <!--<li ng-repeat="city in country.cities">-->
-            <!--{{ city.name }}-->
-          <!--</li>-->
-        <!--</ul>-->
-        <!--</li>-->
-      <!--</ul>-->
-
-    </div><!-- /initCtrl-->
+  <h1>Services</h1>
+  <div ng-controller="serviceCtrl">
+    <div class="col-lg-4">
+      <table class="table table-condensed">
+        <tbody>
+        <tr>
+          <td>Your string</td>
+          <td><input type="text" ng-model="input"></td>
+        </tr>
+        <tr>
+          <td>Result</td>
+          <td><input type="text" ng-model="output"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="button" class="btn btn-default" value="Process string" ng-click="transformString(input)"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 
 
 
 
-  </div> <!-- ## CONTAINER END ## -->
+
+
+
+
+</div> <!-- ## CONTAINER END ## -->
 </body>
 </html>
